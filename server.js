@@ -22,6 +22,10 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());           //PERMITE CONEXIÓN ENTRE FRONTEND Y BACKEND
 app.use(express.json());   //PERMITE RECIBIR DATOS EN FORMATO JSON
 
+const path = require('path');
+
+// SERVIR IMÁGENES DESDE /uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //RUTA BASE
 app.get('/', (req, res) => {
